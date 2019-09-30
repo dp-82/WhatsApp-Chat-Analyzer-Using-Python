@@ -4,8 +4,8 @@ If we analyze the chat data,then it gives breif overview about a particular grou
 
 It uses regular expression to identify the pattern  and dataframe to store and visualize the data.
 
-The Agenda of This Project :
-1.To read the whatsapp text file\n
+The Agenda of This Project :                                                                                                               
+1.To read the whatsapp text file                                                                                                           
 2.To identify the patterns in text file and store it on dataframe
 3.To plot the bar graph for user vs number of messages
 4.To plot the bar graph for time vs number of messages
