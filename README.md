@@ -1,12 +1,11 @@
 # WhatsApp-Chat-Analyzer-Using-Python
 It helps to analyze and visualize the chat of a WhatsApp Group
-Every day we generate huge amount of whatsapp data,but we did not analyze anything.
-If we analyze the data,then it gives breif overview about a particular group.
+If we analyze the chat data,then it gives breif overview about a particular group of a firm.
 
 It uses regular expression to identify the pattern  and dataframe to store and visualize the data.
 
 The Agenda of This Project :
-1.To read the whatsapp text file
+1.To read the whatsapp text file\n
 2.To identify the patterns in text file and store it on dataframe
 3.To plot the bar graph for user vs number of messages
 4.To plot the bar graph for time vs number of messages
