@@ -1,5 +1,6 @@
 import re
 import pandas
+import matplotlib.pyplot as plt
 import calendar
 
 
@@ -18,7 +19,7 @@ def findMostUsedWord(l):
             key = k
     return key.capitalize(), max
 
-
+#Here ex2 file contains our whatsapp Chat Data
 f = open('ex2.txt', encoding='utf8')
 l = []
 ind = -1
@@ -64,15 +65,14 @@ df = pandas.DataFrame(data,
 print(df)
 
 d = df.groupby(['User']).count()
-print(d)
+#print(d)
 d.plot.bar(y='Message', title='Number of Messages by Each User')
-
 d1 = df.groupby(['Month']).count()
 d1.plot.bar(y='Message', title='Number of Messages in each Month')
 
 d2 = df.groupby(['TimeH']).count()
 d2.plot.bar(y='Message', title='Number of Messages in each Hour')
-print(d2)
+#print(d2)
 d3 = df.groupby(['Year']).count()
 d3.plot.bar(y='Message', title='Number of Messages in each Year')
 
@@ -82,3 +82,4 @@ d4.plot.barh(y='Message', title='Number of Messages according to day_wise ')
 print('Longest Message is:', df['MessageSize'].max(), 'characters')
 muw, muwt = findMostUsedWord(li)
 print('The Most Used Word is:' + muw + '-> used ' + str(muwt) + ' times')
+plt.show()
