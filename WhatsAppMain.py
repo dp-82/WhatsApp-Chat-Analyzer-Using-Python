@@ -48,7 +48,7 @@ for i in l:
     a9 = ''
     a10 = ''
     if len(c) >= 2 and 'changed' not in c[0]:
-        a9 = c[0]
+        a9 = c[0].strip()
         a10 = c[1]
     else:
         a9 = 'N/A'
@@ -67,19 +67,44 @@ print(df)
 d = df.groupby(['User']).count()
 #print(d)
 d.plot.bar(y='Message', title='Number of Messages by Each User')
+plt.show()
+
 d1 = df.groupby(['Month']).count()
 d1.plot.bar(y='Message', title='Number of Messages in each Month')
+plt.show()
 
 d2 = df.groupby(['TimeH']).count()
 d2.plot.bar(y='Message', title='Number of Messages in each Hour')
 #print(d2)
+plt.show()
+
 d3 = df.groupby(['Year']).count()
 d3.plot.bar(y='Message', title='Number of Messages in each Year')
+plt.show()
 
 d4 = df.groupby(['Day_Name']).count()
 d4.plot.barh(y='Message', title='Number of Messages according to day_wise ')
+plt.show()
 
 print('Longest Message is:', df['MessageSize'].max(), 'characters')
 muw, muwt = findMostUsedWord(li)
 print('The Most Used Word is:' + muw + '-> used ' + str(muwt) + ' times')
+
+#for top 5 users
+dummy=[]
+for i in d.iterrows():
+    dummy.append([i[1][0],i[0]])
+dummy.sort(reverse=True)
+top5_names=[]
+top5_no_of_msgs=[]
+c=0
+for i in dummy:
+    if i[1]!='N/A':
+        top5_no_of_msgs.append(i[0])
+        top5_names.append(i[1])
+        c+=1
+    if c==5:break
+
+plt.pie(top5_no_of_msgs,labels=top5_names)
+plt.title('Top 5 Users')
 plt.show()
